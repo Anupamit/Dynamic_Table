@@ -1,0 +1,64 @@
+<!DOCTYPE>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+    <script type="text/javascript">
+      let familymembers =[{
+        name:"viswnath",
+        age:70
+      },{
+        name:"diwakar",
+        age:52
+      },{
+        name:"piyush",
+        age:40
+      },{
+        name:"pankaj",
+        age:52
+      }];
+      console.log(familymembers);
+      function createTable(){
+      let rows = document.getElementById("rows").value
+      if (rows < 4 ){
+        console.log("invalid < 4");
+      }
+
+      let tableHeader = `<table>
+                       <tr>
+                         <th>name</th>
+                          <th>age</th>
+                       </tr>`
+      let tableFooter = `</table>`
+      let tableContent = tableHeader;
+      let row = rows
+      for(let i=0; i<row; i++){
+      let rowOpener = `<tr>`
+      let rowcloser = `</tr>`
+      let rowDataOpener =`<td>`
+      let rowDataCloser = `</td>`
+      let row =`<tr>
+                  <td>`+ familymembers[i].name + `</td>
+                  <td>`+ familymembers[i].age + `</td>
+                </tr>`
+          tableContent = tableContent + row
+      }
+       tableContent = tableContent + tableFooter
+       console.log(tableContent);
+       document.getElementById("dynamictable").innerHTML = tableContent;
+      }
+      function reset(){
+        document.getElementById("dynamictable").innerHTML =""
+        document.getElementById("rows").value =""
+      }
+    </script>
+    <input type="number" name="button" value="" id="rows">
+    <button type="button" name="button" onclick="createTable()">createTable</button>
+    <button type="button" name="button" onclick="reset()">reset</button>
+    <div id="dynamictable">
+      </div>
+  <body>
+
+  </body>
+</html>
