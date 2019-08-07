@@ -1,0 +1,80 @@
+<!DOCTYPE>
+<html lang="en" dir="ltr">
+  <head>
+    <h2>Family Table</h2>
+    <meta charset="utf-8">
+    <title>family object table</title>
+  </head>
+    <script type="text/javascript">
+      function createTable(){
+        let rows = document.getElementById("rows").value;
+        if(rows >=5 ){
+          //alert('please fill the value <5')
+          console.log('please fill the value <=5');
+          return
+        }
+        let tableHeader = `<table> <tr> <th>Details</th> <th>S.No</th> </tr>`
+        let tableFooter = `</table>`
+        let tableContent = tableHeader;
+        let familymembers = [{
+            name: "viswnath",
+            age: 70,
+        }, {
+            name: "keshav",
+            age: 68,
+        }, {
+            name: "Prahlad",
+            age: 65,
+        }, {
+            name: "diwakar",
+            age: 50,
+        }, {
+            name: "piyush",
+            age: 40,
+        }];
+
+          let row = rows;
+          for(let i = 0; i < rows; i++){
+            let rowOpener = '<tr>'
+            let rowCloser = '</tr>'
+            let rowDataOpener = '<td>'
+            let rowDataCloser = '</td>'
+            let row = `<tr>
+                         <td>`+ familymembers[i].name + `</td>
+                         <td>`+ familymembers[i].age + `</td>
+                       <tr>`
+
+            tableContent = tableContent + row
+          }
+            tableContent = tableContent + tableFooter
+            console.log(tableContent)
+            document.getElementById('dynamictable').innerHTML = tableContent;
+
+      }
+
+        function reset() {
+          document.getElementById("dynamictable").innerHTML =''
+          document.getElementById("rows").value =''
+        }
+
+    </script>
+        <input type="number" name="button" value="" id="rows">
+        <button type="button" name="button" onclick="createTable()">create table</button>
+        <button onclick="reset()">reset</button>
+          <h3>Table generated here after clicking createTable</h3>
+        <div class="" id="dynamictable">
+        </div>
+        <body>
+            <style>
+              table, th, td, input, button {
+              border: 3px solid black;
+              }
+              table {
+              width: 20%;
+              }
+              th {
+              height: 50px;
+              }
+          </style>
+        </body>
+</html>
