@@ -1,0 +1,66 @@
+<!DOCTYPE>
+<html lang="en" dir="ltr">
+  <head>
+    <h2> Number of rows to be generated </h2>
+    <meta charset="utf-8">
+    <title>Dynamic Table</title>
+
+  <script type="text/javascript">
+    function createTable(){
+      let rows = document.getElementById("rows").value;
+      let tableHeader =`<table>
+        <tr>
+          <th>Pichkudia</th>
+          <th>S.No:</th>
+        </tr>`
+      let tableFooter = `</table>`
+      let pichkudia = rows
+      let tableContent = tableHeader;
+      for(let i = 1; i<=rows; i++ ){
+        let rowOpener = '<tr>'
+        let rowCloser = '</tr>'
+        let rowDataOpener = '<td>'
+        let rowDataCloser = '</td>'
+        let row = rowOpener+ rowDataOpener + pichkudia-- +  rowDataCloser + rowDataOpener + i+ rowDataCloser +rowCloser;
+        // let row = `<tr>
+        //               <td>`+ pichkudia-- + `</td>
+        //               <td>`+ i + `</td>
+        //            <tr>`
+
+        tableContent = tableContent + row
+       }
+      tableContent = tableContent + tableFooter
+      console.log(tableContent)
+      document.getElementById('dynamictable').innerHTML = tableContent;
+
+    }
+
+    function reset() {
+      document.getElementById("dynamictable").innerHTML =''
+      document.getElementById("rows").value =''
+    }
+
+  </script>
+    <input type="number" name="button" value="" id="rows">
+    <button type="button" name="button" onclick="createTable()">create table</button>
+    <button onclick="reset()">reset</button>
+    <p>
+      <h3>Table generated here after clicking createTable</h3>
+    </p>
+    <div class="" id="dynamictable">
+    </div>
+  <body>
+      <style>
+        table, th, td, input, button {
+        border: 3px solid black;
+        }
+        table {
+        width: 20%;
+        }
+        th {
+        height: 50px;
+        }
+    </style>
+  </head>
+  </body>
+</html>
